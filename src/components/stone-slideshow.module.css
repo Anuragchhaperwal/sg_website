@@ -1,0 +1,384 @@
+.showcase {
+  overflow: hidden;
+  padding: 8rem 0;
+  background: #1d1b17;
+  color: #f5efe5;
+}
+
+.inner {
+  width: min(calc(100% - 8rem), 1280px);
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  align-items: end;
+  gap: 1.5rem 4rem;
+  margin-bottom: 3.5rem;
+}
+
+.label {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: 1rem;
+  color: #d8bf99;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.labelLine {
+  width: 3.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.title {
+  max-width: 13ch;
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.title em {
+  color: #d8bf99;
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 24rem;
+  margin: 0;
+  color: #bdb6a9;
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+.stage {
+  position: relative;
+  height: clamp(26rem, 58vw, 46rem);
+  overflow: hidden;
+  background: #29241e;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.slide:not(:first-child) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.slide::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(0deg, rgb(20 18 15 / 78%) 0%, rgb(20 18 15 / 22%) 45%, transparent 70%),
+    linear-gradient(90deg, rgb(20 18 15 / 35%), transparent 55%);
+  content: "";
+  pointer-events: none;
+}
+
+.parallax,
+.media {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 3.5rem);
+  bottom: clamp(1.75rem, 4vw, 3.5rem);
+  left: clamp(1.5rem, 4vw, 3.5rem);
+  z-index: 2;
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.line > span {
+  display: inline-block;
+}
+
+.space {
+  color: #ddc69f;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.slideTitle {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.8rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.slideLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgb(245 239 229 / 45%);
+  color: #f5efe5;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: border-color 180ms ease;
+}
+
+.slideLink svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 180ms ease;
+}
+
+.slideLink:hover {
+  border-color: #f5efe5;
+}
+
+.slideLink:hover svg {
+  transform: translateX(4px);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #0f0e0c;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 1.75rem;
+}
+
+.counter {
+  margin: 0;
+  color: #8f887b;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter span {
+  color: #f5efe5;
+  font-size: 1.6rem;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tab {
+  display: grid;
+  width: 100%;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border: 0;
+  background: none;
+  color: #8f887b;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  transition: color 220ms ease;
+}
+
+.tab:hover,
+.tab[aria-current="true"] {
+  color: #f5efe5;
+}
+
+.tabTrack {
+  position: relative;
+  display: block;
+  height: 1px;
+  overflow: hidden;
+  background: rgb(245 239 229 / 18%);
+}
+
+.tabBar {
+  position: absolute;
+  inset: 0;
+  background: #d8bf99;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.button {
+  display: grid;
+  width: 3.1rem;
+  height: 3.1rem;
+  place-items: center;
+  border: 1px solid rgb(245 239 229 / 30%);
+  border-radius: 50%;
+  background: transparent;
+  color: #f5efe5;
+  cursor: pointer;
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.button svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.toggle svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.prev svg {
+  transform: rotate(180deg);
+}
+
+.button:hover {
+  border-color: #f5efe5;
+  background: #f5efe5;
+  color: #1d1b17;
+}
+
+.button:focus-visible,
+.tab:focus-visible,
+.slideLink:focus-visible {
+  outline: 2px solid #d8bf99;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .showcase {
+    padding: 6rem 0;
+  }
+
+  .inner {
+    width: calc(100% - 5rem);
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+  }
+
+  .tabs {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .buttons {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 640px) {
+  .showcase {
+    padding: 4.5rem 0;
+  }
+
+  .inner {
+    width: calc(100% - 3rem);
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .stage {
+    height: min(34rem, 78svh);
+  }
+
+  .tabs {
+    gap: 0.5rem;
+  }
+
+  .tabName {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .tab {
+    padding: 1rem 0;
+  }
+
+  .tabTrack {
+    height: 2px;
+  }
+
+  .button {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle {
+    display: none;
+  }
+
+  .tab[aria-current="true"] .tabBar {
+    transform: scaleX(1);
+  }
+
+  .tab,
+  .button,
+  .slideLink,
+  .slideLink svg {
+    transition-duration: 0.01ms;
+  }
+}
