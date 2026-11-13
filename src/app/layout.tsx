@@ -16,9 +16,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Samdani Group | Natural Stone, Thoughtfully Chosen",
+  title: "Samdani Group | Flooring Materials, Thoughtfully Chosen",
   description:
-    "Explore Samdani Group's collections of marble, granite, and natural stone from Chittorgarh, Rajasthan.",
+    "Explore Samdani Group's collections of marble and flooring materials from Chittorgarh and Kishangarh, Rajasthan.",
   icons: {
     icon: [{ url: "/images/samdani-group-mark.png", type: "image/png" }],
   },

@@ -7,9 +7,9 @@ import { ContactInquiryForm } from "./contact-inquiry-form";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Samdani Group | Natural Stone, Chittorgarh",
+  title: "Contact Samdani Group | Flooring Materials, Chittorgarh and Kishangarh",
   description:
-    "Talk with Samdani Group about natural stone for your next project. Contact our team in Chittorgarh, Rajasthan.",
+    "Talk with Samdani Group about flooring materials for your next project. Contact our team in Chittorgarh and Kishangarh, Rajasthan.",
 };
 
 export default function ContactPage() {
@@ -38,7 +38,7 @@ export default function ContactPage() {
               </h1>
               <p className={styles.heroDescription}>
                 Tell us what you&apos;re imagining. We&apos;ll help you find
-                natural stone with the right character for your space.
+                flooring materials with the right character for your space.
               </p>
               <a className={styles.heroLink} href="#inquiry">
                 Start an enquiry <ArrowIcon />
@@ -70,10 +70,10 @@ export default function ContactPage() {
                 </a>
                 <a
                   className={styles.contactDetail}
-                  href="mailto:info@samdanigroup.com"
+                  href="mailto:Info@samdanimarblegroup.com"
                 >
                   <span className={styles.detailLabel}>Email us</span>
-                  <span>info@samdanigroup.com</span>
+                  <span>Info@samdanimarblegroup.com</span>
                 </a>
                 <a
                   className={styles.contactDetail}
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   <span>
                     E-91, RIICO Industrial Area
                     <br />
-                    Chittorgarh, Rajasthan 312001
+                    Chittorgarh and Kishangarh, Rajasthan 312001
                   </span>
                 </a>
               </div>

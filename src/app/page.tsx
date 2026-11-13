@@ -36,7 +36,7 @@ export default function Home() {
               Spaces shaped <em>by nature.</em>
             </h1>
             <p className="hero__description">
-              Marble, granite, and natural stone for spaces to live in, love,
+              Marble and flooring materials for spaces to live in, love,
               and remember.
             </p>
             <a className="hero__button" href="#about">
@@ -46,13 +46,13 @@ export default function Home() {
           </div>
 
           <div className="hero__bottom">
-            <span className="hero__bottom-note">From Chittorgarh, Rajasthan</span>
+            <span className="hero__bottom-note">From Chittorgarh and Kishangarh, Rajasthan</span>
             <a className="scroll-cue" href="#about">
               <span>Scroll to explore</span>
               <span className="scroll-cue__line" aria-hidden="true" />
             </a>
             <span className="hero__bottom-note hero__bottom-note--right">
-              Natural stone since 1994
+              Flooring materials since 1994
             </span>
           </div>
         </section>
@@ -95,13 +95,14 @@ export default function Home() {
                   A little of nature, <em>a lot of character.</em>
                 </h2>
                 <p className="about__lead">
-                  Since 1994, Samdani Group has brought the character of natural
-                  stone to spaces across India.
+                  Since 1994, Samdani Group has brought the character of
+                  flooring materials to spaces across India.
                 </p>
                 <p className="about__copy">
-                  Based in Chittorgarh, Rajasthan, we work with marble, granite,
-                  and imported natural stones, helping architects, designers,
-                  and builders find materials for spaces made to last.
+                  Based in Chittorgarh and Kishangarh, Rajasthan, we work with
+                  marble and imported flooring materials, helping architects,
+                  designers, and builders find materials for spaces
+                  made to last.
                 </p>
 
                 <div className="about__details">
@@ -111,7 +112,7 @@ export default function Home() {
                   </div>
                   <div>
                     <span>02</span>
-                    Chittorgarh, Rajasthan
+                    Chittorgarh and Kishangarh, Rajasthan
                   </div>
                 </div>
 

@@ -17,7 +17,7 @@ export function SiteFooter() {
           </div>
           <a
             className={footerStyles.cta}
-            href="mailto:info@samdanigroup.com"
+            href="mailto:Info@samdanimarblegroup.com"
           >
             Start a conversation <ArrowIcon />
           </a>
@@ -40,7 +40,7 @@ export function SiteFooter() {
               />
             </Link>
             <p className={footerStyles.description}>
-              Crafting timeless spaces with the beauty of natural stone.
+              Crafting timeless spaces with the beauty of flooring materials.
             </p>
             <nav className={footerStyles.socials} aria-label="Social media">
               <a
@@ -85,10 +85,10 @@ export function SiteFooter() {
             </a>
             <a
               className={footerStyles.contactLink}
-              href="mailto:info@samdanigroup.com"
+              href="mailto:Info@samdanimarblegroup.com"
             >
               <span className={footerStyles.contactLabel}>Email us</span>
-              <span>info@samdanigroup.com</span>
+              <span>Info@samdanimarblegroup.com</span>
             </a>
             <a
               className={footerStyles.contactLink}
@@ -100,7 +100,7 @@ export function SiteFooter() {
               <span>
                 E-91, RIICO Industrial Area
                 <br />
-                Chittorgarh, Rajasthan 312001
+                Chittorgarh and Kishangarh, Rajasthan 312001
               </span>
             </a>
           </address>
@@ -108,7 +108,7 @@ export function SiteFooter() {
 
         <div className={footerStyles.bottom}>
           <p>&copy; Samdani Group. All rights reserved.</p>
-          <p>Natural stone, thoughtfully sourced since 1994.</p>
+          <p>Flooring materials, thoughtfully sourced since 1994.</p>
           <Link className={footerStyles.backToTop} href="/#home">
             Back to top <ArrowIcon />
           </Link>

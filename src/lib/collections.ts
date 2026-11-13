@@ -23,7 +23,7 @@ const collectionData: Omit<Collection, "href">[] = [
     intro:
       "Bright, serene surfaces that open up a room and let natural light do the rest.",
     story:
-      "From soft milky grounds to crisp whites traced with delicate veining, this collection brings an effortless sense of space and clarity. Each slab is selected for consistency of tone while keeping the subtle variations that make natural stone unique.",
+      "From soft milky grounds to crisp whites traced with delicate veining, this collection brings an effortless sense of space and clarity. Each slab is selected for consistency of tone while keeping the subtle variations that make flooring materials unique.",
     tone: "#ece7dd",
     palette: [
       { name: "Snow white", color: "#f4f1ea" },
@@ -75,7 +75,7 @@ const collectionData: Omit<Collection, "href">[] = [
     slug: "beyond-beige",
     number: "04",
     name: "Beyond Beige",
-    description: "Warm neutrals in their natural element.",
+    description: "Warm neutrals in their flooring materials element.",
     headline: "Warm neutrals, *naturally inviting.*",
     intro:
       "Sun-warmed creams and sandy tones that make every space feel grounded and welcoming.",
@@ -94,10 +94,10 @@ const collectionData: Omit<Collection, "href">[] = [
     slug: "art-of-textures",
     number: "05",
     name: "Art of Textures",
-    description: "Natural patterns with a tactile touch.",
+    description: "Flooring patterns with a tactile touch.",
     headline: "Surfaces you can *feel.*",
     intro:
-      "Expressive textures and natural patterns that add depth, shadow, and craft to any space.",
+      "Expressive textures and flooring patterns that add depth, shadow, and craft to any space.",
     story:
       "Brushed, split, and sculpted finishes reveal the raw beauty within each stone. This collection celebrates touch and texture, adding a handcrafted quality to walls, facades, and landscapes.",
     tone: "#7b6b58",

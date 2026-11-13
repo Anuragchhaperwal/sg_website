@@ -28,7 +28,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${collection.name} | Samdani Group Natural Stone`,
+    title: `${collection.name} | Samdani Group Flooring Materials`,
     description: `${collection.description} ${collection.intro}`,
   };
 }
@@ -115,7 +115,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
               <div className={styles.swatchImage}>
                 <Image
                   src="/images/marble-texture.webp"
-                  alt={`Natural stone texture representing ${collection.name}`}
+                  alt={`Flooring materials texture representing ${collection.name}`}
                   fill
                   sizes="(max-width: 900px) 100vw, 45vw"
                 />

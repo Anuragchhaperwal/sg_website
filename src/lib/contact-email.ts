@@ -23,5 +23,5 @@ export function buildContactMailto({
   const body = [...details, "", message].join("\n");
   const subject = interest ? `Project enquiry: ${interest}` : "Project enquiry";
 
-  return `mailto:info@samdanigroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:Info@samdanimarblegroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

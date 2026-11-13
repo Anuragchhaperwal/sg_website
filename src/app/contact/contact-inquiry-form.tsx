@@ -67,7 +67,7 @@ export function ContactInquiryForm() {
             <option disabled value="">
               Choose an enquiry
             </option>
-            <option>Natural stone selection</option>
+            <option>Flooring materials selection</option>
             <option>Residential project</option>
             <option>Commercial project</option>
             <option>Trade or partnership</option>

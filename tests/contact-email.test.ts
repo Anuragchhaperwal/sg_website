@@ -14,7 +14,7 @@ describe("buildContactMailto", () => {
     const url = new URL(mailto);
 
     expect(url.protocol).toBe("mailto:");
-    expect(url.pathname).toBe("info@samdanigroup.com");
+    expect(url.pathname).toBe("Info@samdanimarblegroup.com");
     expect(url.searchParams.get("subject")).toBe(
       "Project enquiry: Residential project",
     );

@@ -298,8 +298,8 @@ export function StoneSlideshow({ slides }: { slides: ShowcaseSlide[] }) {
             Inspiration, <em>in every surface.</em>
           </h2>
           <p className={styles.intro}>
-            From quiet bathrooms to welcoming facades, see how natural stone
-            shapes the character of a space.
+            From quiet bathrooms to welcoming facades, see how flooring
+            materials shape the character of a space.
           </p>
         </div>
 

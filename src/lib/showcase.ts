@@ -32,7 +32,7 @@ const slideData = [
   },
   {
     src: "/images/slide-entrance.webp",
-    alt: "A modern home entrance with a natural slate stone driveway",
+    alt: "A modern home entrance with a slate flooring materials driveway",
     space: "Outdoor",
     title: "Grounded at every step.",
     collectionSlug: "art-of-textures",
