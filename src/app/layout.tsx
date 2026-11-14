@@ -16,6 +16,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://samdanigroup.com"),
   title: "Samdani Group | Flooring Materials, Thoughtfully Chosen",
   description:
     "Explore Samdani Group's collections of marble and flooring materials from Chittorgarh and Kishangarh, Rajasthan.",
