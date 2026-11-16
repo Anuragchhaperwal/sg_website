@@ -33,17 +33,19 @@ export function SiteHeader() {
         <Link
           className="brand"
           href={homeHref}
-          aria-label="Samdani Group, home"
+          aria-label="Samdani Marble Group, home"
           onClick={() => setMenuOpen(false)}
         >
-          <Image
-            className="brand__logo"
-            src="/images/samdani-group-logo.png"
-            width={3016}
-            height={560}
-            sizes="(max-width: 560px) 128px, 160px"
-            alt=""
-          />
+          <span className="brand__logo-frame">
+            <Image
+              className="brand__logo"
+              src="/images/samdani-group-logo.png"
+              width={500}
+              height={500}
+              sizes="(max-width: 560px) 182px, 228px"
+              alt=""
+            />
+          </span>
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">

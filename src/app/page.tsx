@@ -27,11 +27,6 @@ export default function Home() {
           />
 
           <div className="hero__content">
-            <p className="hero__eyebrow">
-              <span aria-hidden="true" />
-              Nature, beautifully considered
-              <span aria-hidden="true" />
-            </p>
             <h1 id="hero-heading">
               Spaces shaped <em>by nature.</em>
             </h1>
@@ -90,12 +85,12 @@ export default function Home() {
               </div>
 
               <div className="about__content">
-                <p className="eyebrow">Welcome to Samdani Group</p>
+                <p className="eyebrow">Welcome to Samdani Marble Group</p>
                 <h2 id="about-heading">
                   A little of nature, <em>a lot of character.</em>
                 </h2>
                 <p className="about__lead">
-                  Since 1994, Samdani Group has brought the character of
+                  Since 1994, Samdani Marble Group has brought the character of
                   flooring materials to spaces across India.
                 </p>
                 <p className="about__copy">

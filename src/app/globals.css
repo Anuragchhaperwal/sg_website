@@ -87,10 +87,23 @@ button {
   gap: 0.75rem;
 }
 
-.brand__logo {
+.brand__logo-frame {
+  position: relative;
   display: block;
   width: clamp(8.5rem, 13vw, 10rem);
+  aspect-ratio: 352 / 90;
+  overflow: hidden;
+}
+
+.brand__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 142.05%;
+  max-width: none;
   height: auto;
+  transform: translate(-51.6%, -50%);
 }
 
 .desktop-nav {
@@ -102,7 +115,7 @@ button {
 .desktop-nav a,
 .header-cta,
 .menu-toggle {
-  font-size: 0.66rem;
+  font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -613,7 +626,7 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -655,7 +668,7 @@ button {
     width: calc(100% - 2.5rem);
   }
 
-  .brand__logo {
+  .brand__logo-frame {
     width: 8rem;
   }
 

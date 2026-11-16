@@ -24,11 +24,11 @@ export async function generateMetadata({
   const collection = getCollection(slug);
 
   if (!collection) {
-    return { title: "Collection not found | Samdani Group" };
+    return { title: "Collection not found | Samdani Marble Group" };
   }
 
   return {
-    title: `${collection.name} | Samdani Group Flooring Materials`,
+    title: `${collection.name} | Samdani Marble Group Flooring Materials`,
     description: `${collection.description} ${collection.intro}`,
   };
 }

@@ -7,9 +7,9 @@ import { ContactInquiryForm } from "./contact-inquiry-form";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Samdani Group | Flooring Materials, Chittorgarh and Kishangarh",
+  title: "Contact Samdani Marble Group | Flooring Materials, Chittorgarh and Kishangarh",
   description:
-    "Talk with Samdani Group about flooring materials for your next project. Contact our team in Chittorgarh and Kishangarh, Rajasthan.",
+    "Talk with Samdani Marble Group about flooring materials for your next project. Contact our team in Chittorgarh and Kishangarh, Rajasthan.",
 };
 
 export default function ContactPage() {
@@ -77,16 +77,21 @@ export default function ContactPage() {
                 </a>
                 <a
                   className={styles.contactDetail}
-                  href="https://maps.app.goo.gl/zCUGfNX46CeWfSRB8?g_st=ic"
+                  href="https://share.google/BRGwpBb6ELPa9TO2l"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className={styles.detailLabel}>Find us</span>
-                  <span>
-                    E-91, RIICO Industrial Area
-                    <br />
-                    Chittorgarh and Kishangarh, Rajasthan 312001
-                  </span>
+                  <span className={styles.detailLabel}>Kishangarh store</span>
+                  <span>View store location</span>
+                </a>
+                <a
+                  className={styles.contactDetail}
+                  href="https://maps.app.goo.gl/CoRgBujQsrQdz1Cg9"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className={styles.detailLabel}>Chittorgarh store</span>
+                  <span>View store location</span>
                 </a>
               </div>
             </div>

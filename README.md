@@ -22,21 +22,21 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Homepage customization
 
-The homepage uses Samdani Group's name, company background, and five collection
-names from its [existing website](https://samdanigroup.com/). Each collection
+The homepage uses Samdani Marble Group's name, company background, and five
+collection names from its [existing website](https://samdanigroup.com/). Each collection
 has its own page at `/collections/<slug>`. The collection descriptions, palettes,
-finishes, and applications are placeholder copy; confirm them with Samdani Group
-before publishing. The logo in the shared header and footer is sourced from
-Samdani Group's website; the project photos are placeholders.
+finishes, and applications are placeholder copy; confirm them with Samdani
+Marble Group before publishing. The logo in the shared header and footer is sourced from
+Samdani Marble Group's website; the project photos are placeholders.
 
 - Page content and footer contact details: `src/app/page.tsx`
 - Contact page and inquiry form: `src/app/contact/page.tsx`
 - Collection detail pages: `src/app/collections/[slug]/page.tsx`
 - Shared navigation: `src/components/site-header.tsx`
 - Shared footer: `src/app/site-footer.tsx`
-- Samdani Group logo and mark: `public/images/samdani-group-logo.png` and
+- Samdani Marble Group logo and mark: `public/images/samdani-group-logo.png` and
   `public/images/samdani-group-mark.png` (from
-  [Samdani Group's website](https://samdanigroup.com/))
+  [Samdani Marble Group's website](https://samdanigroup.com/))
 - Stone collection data and detail copy: `src/lib/collections.ts`
 - Homepage styling: `src/app/globals.css`
 - Footer styling: `src/app/footer.module.css`
@@ -59,7 +59,7 @@ They are available under the [Unsplash License](https://unsplash.com/license).
 The [marble texture](https://commons.wikimedia.org/wiki/File:Marble_Texture.png)
 is available under CC0. The footer's published address, email, phone number,
 collections, and social links were taken from
-[Samdani Group's website](https://samdanigroup.com/).
+[Samdani Marble Group's website](https://samdanigroup.com/).
 
 ## Learn More
 

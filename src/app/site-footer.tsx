@@ -28,16 +28,18 @@ export function SiteFooter() {
             <Link
               className={footerStyles.brand}
               href="/#home"
-              aria-label="Samdani Group, home"
+              aria-label="Samdani Marble Group, home"
             >
-              <Image
-                className={footerStyles.brandLogo}
-                src="/images/samdani-group-logo.png"
-                width={3016}
-                height={560}
-                sizes="208px"
-                alt=""
-              />
+              <span className={footerStyles.brandLogoFrame}>
+                <Image
+                  className={footerStyles.brandLogo}
+                  src="/images/samdani-group-logo.png"
+                  width={500}
+                  height={500}
+                  sizes="296px"
+                  alt=""
+                />
+              </span>
             </Link>
             <p className={footerStyles.description}>
               Crafting timeless spaces with the beauty of flooring materials.
@@ -92,22 +94,27 @@ export function SiteFooter() {
             </a>
             <a
               className={footerStyles.contactLink}
-              href="https://maps.app.goo.gl/zCUGfNX46CeWfSRB8?g_st=ic"
+              href="https://share.google/BRGwpBb6ELPa9TO2l"
               target="_blank"
               rel="noreferrer"
             >
-              <span className={footerStyles.contactLabel}>Visit us</span>
-              <span>
-                E-91, RIICO Industrial Area
-                <br />
-                Chittorgarh and Kishangarh, Rajasthan 312001
-              </span>
+              <span className={footerStyles.contactLabel}>Kishangarh store</span>
+              <span>View store location</span>
+            </a>
+            <a
+              className={footerStyles.contactLink}
+              href="https://maps.app.goo.gl/CoRgBujQsrQdz1Cg9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className={footerStyles.contactLabel}>Chittorgarh store</span>
+              <span>View store location</span>
             </a>
           </address>
         </div>
 
         <div className={footerStyles.bottom}>
-          <p>&copy; Samdani Group. All rights reserved.</p>
+          <p>&copy; Samdani Marble Group. All rights reserved.</p>
           <p>Flooring materials, thoughtfully sourced since 1994.</p>
           <Link className={footerStyles.backToTop} href="/#home">
             Back to top <ArrowIcon />

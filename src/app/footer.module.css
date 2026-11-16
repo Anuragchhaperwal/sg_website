@@ -97,10 +97,24 @@
   width: fit-content;
 }
 
-.brandLogo {
+.brandLogoFrame {
+  position: relative;
   display: block;
-  width: min(100%, 13rem);
+  width: 13rem;
+  max-width: 100%;
+  aspect-ratio: 352 / 90;
+  overflow: hidden;
+}
+
+.brandLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 142.05%;
+  max-width: none;
   height: auto;
+  transform: translate(-51.6%, -50%);
 }
 
 .description {
@@ -161,6 +175,10 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+}
+
+.contact .columnTitle {
+  font-size: 0.8rem;
 }
 
 .column a {
