@@ -19,7 +19,7 @@ export default function Home() {
         <section className="hero" id="home" aria-labelledby="hero-heading">
           <Image
             className="hero__image"
-            src="/images/hero-interior.webp"
+            src="/images/hero-interior.png"
             alt=""
             fill
             sizes="100vw"

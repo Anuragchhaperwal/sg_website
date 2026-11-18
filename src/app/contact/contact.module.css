@@ -303,6 +303,88 @@
   line-height: 1.65;
 }
 
+.resumeTrigger {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  right: 0;
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0 1.2rem;
+  border: 1px solid #292823;
+  background: #292823;
+  color: #fffaf1;
+  cursor: pointer;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+}
+
+.resumeTrigger svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 180ms ease;
+}
+
+.resumeTrigger:hover svg {
+  transform: translateX(4px);
+}
+
+.resumeDialog {
+  position: fixed;
+  inset: 0;
+  width: min(42rem, calc(100% - 2rem));
+  max-width: none;
+  max-height: min(90vh, 52rem);
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgb(41 40 35 / 15%);
+  background: #fbf9f4;
+  color: #292823;
+  box-shadow: 0 1.5rem 5rem rgb(20 18 15 / 28%);
+}
+
+.resumeDialog::backdrop {
+  background: rgb(20 18 15 / 65%);
+  backdrop-filter: blur(3px);
+}
+
+.resumeDialogInner {
+  position: relative;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+
+.resumeDialog .formHeading {
+  margin-top: 1rem;
+  padding-right: 2rem;
+}
+
+.resumeDialog .formHeading em {
+  color: #8b7557;
+  font-weight: 400;
+}
+
+.resumeClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid rgb(41 40 35 / 18%);
+  background: transparent;
+  color: #292823;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 @media (max-width: 900px) {
   .heroInner,
   .contentInner {
@@ -391,6 +473,22 @@
   .submit {
     width: 100%;
   }
+
+  .resumeTrigger {
+    top: auto;
+    right: 1rem;
+    bottom: 1rem;
+    min-height: 3.2rem;
+    transform: none;
+  }
+
+  .resumeDialog .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .resumeDialog .fieldFull {
+    grid-column: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -401,7 +499,8 @@
   .field select,
   .field textarea,
   .submit,
-  .submit svg {
+  .submit svg,
+  .resumeTrigger svg {
     transition-duration: 0.01ms;
   }
 }

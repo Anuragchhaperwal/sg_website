@@ -1,6 +1,9 @@
 // Runtime validation coverage for contact enquiry emails.
 import { describe, expect, it } from "vitest";
-import { buildContactMailto } from "../src/lib/contact-email";
+import {
+  buildContactMailto,
+  buildResumeMailto,
+} from "../src/lib/contact-email";
 
 describe("buildContactMailto", () => {
   it("creates an encoded email with the submitted project details", () => {
@@ -49,5 +52,37 @@ describe("buildContactMailto", () => {
         "Please share your stone options.",
       ].join("\n"),
     );
+  });
+
+  it("includes only the provided optional resume details", () => {
+    const mailto = buildResumeMailto({
+      name: "Riya Shah",
+      email: "",
+      phone: "+91 98765 43210",
+      resumeFileName: "Riya Resume.pdf",
+    });
+    const url = new URL(mailto);
+
+    expect(url.searchParams.get("subject")).toBe("Resume submission");
+    expect(url.searchParams.get("body")).toBe(
+      [
+        "Name: Riya Shah",
+        "Phone: +91 98765 43210",
+        "Resume file: Riya Resume.pdf (please attach it before sending)",
+      ].join("\n"),
+    );
+  });
+
+  it("allows a resume email with all fields left blank", () => {
+    const mailto = buildResumeMailto({
+      name: "",
+      email: "",
+      phone: "",
+      resumeFileName: "",
+    });
+    const url = new URL(mailto);
+
+    expect(url.searchParams.get("subject")).toBe("Resume submission");
+    expect(url.searchParams.get("body")).toBe("");
   });
 });

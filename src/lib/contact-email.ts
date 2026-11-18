@@ -25,3 +25,27 @@ export function buildContactMailto({
 
   return `mailto:Info@samdanimarblegroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+export function buildResumeMailto({
+  name,
+  email,
+  phone,
+  resumeFileName,
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  resumeFileName: string;
+}) {
+  const details = [
+    name ? `Name: ${name}` : "",
+    email ? `Email: ${email}` : "",
+    phone ? `Phone: ${phone}` : "",
+    resumeFileName
+      ? `Resume file: ${resumeFileName} (please attach it before sending)`
+      : "",
+  ].filter(Boolean);
+  const body = details.join("\n");
+
+  return `mailto:Info@samdanimarblegroup.com?subject=${encodeURIComponent("Resume submission")}&body=${encodeURIComponent(body)}`;
+}

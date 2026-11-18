@@ -4,6 +4,7 @@ import { ArrowIcon } from "@/components/arrow-icon";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "../site-footer";
 import { ContactInquiryForm } from "./contact-inquiry-form";
+import { ResumeInquiry } from "./resume-inquiry";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
@@ -108,6 +109,7 @@ export default function ContactPage() {
       </main>
 
       <SiteFooter />
+      <ResumeInquiry />
     </>
   );
 }
