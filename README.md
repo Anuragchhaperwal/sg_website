@@ -63,10 +63,11 @@ collections, and social links were taken from
 
 ## Catalogue PDF sharing
 
-Visit `/catalogue` to upload a PDF (up to 10 MB). The upload page creates a
-shareable URL that opens the PDF inline in a browser. Uploads are stored in
-`.data/catalogues` by default; set `CATALOGUE_UPLOAD_DIR` to use another
-directory. The upload page is public, so anyone can upload a PDF.
+Visit `/catalogue` directly to upload a PDF (up to 10 MB); the page is not
+linked from the site's navigation. The upload page creates a shareable URL that
+opens the PDF inline in a browser. Uploads are stored in `.data/catalogues` by
+default; set `CATALOGUE_UPLOAD_DIR` to use another directory. The upload page
+is public, so anyone with its URL can upload a PDF.
 
 This filesystem storage requires a persistent Node.js server and shared storage
 for multiple server instances. On serverless hosting, configure persistent
