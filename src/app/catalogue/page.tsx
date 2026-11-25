@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Upload Catalogue | Samdani Marble Group",
   description:
     "Upload a PDF catalogue and create a shareable link that opens the PDF.",
+  robots: { index: false, follow: false },
 };
 
 export default function CataloguePage() {

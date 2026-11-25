@@ -69,6 +69,11 @@ opens the PDF inline in a browser. Uploads are stored in `.data/catalogues` by
 default; set `CATALOGUE_UPLOAD_DIR` to use another directory. The upload page
 is public, so anyone with its URL can upload a PDF.
 
+Visit `/catalogue/manage` to list, copy links for, or delete uploaded
+catalogues. This manager is also unlinked and requires `CATALOGUE_ADMIN_PASSWORD`
+to be set in the server environment. Use a strong password and serve the site
+over HTTPS.
+
 This filesystem storage requires a persistent Node.js server and shared storage
 for multiple server instances. On serverless hosting, configure persistent
 object storage instead; local deployment files may not persist between

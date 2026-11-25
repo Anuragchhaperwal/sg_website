@@ -193,6 +193,88 @@
   text-underline-offset: 0.2em;
 }
 
+.managerHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.managerHeading .panelDescription {
+  margin: 0;
+}
+
+.catalogueList {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgb(41 40 35 / 18%);
+  list-style: none;
+}
+
+.catalogueItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(41 40 35 / 18%);
+}
+
+.catalogueInfo {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  overflow-wrap: anywhere;
+  font-size: 0.78rem;
+}
+
+.catalogueInfo span,
+.emptyState,
+.managerStatus {
+  color: #68665e;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.catalogueActions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.textButton,
+.deleteButton {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #292823;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.deleteButton {
+  color: #9a3025;
+}
+
+.deleteButton:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.emptyState,
+.managerStatus {
+  margin: 1rem 0 0;
+}
+
 @media (max-width: 560px) {
   .main {
     padding: 9rem 1.25rem 4rem;
@@ -208,5 +290,14 @@
 
   .submit {
     width: 100%;
+  }
+
+  .catalogueItem {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .catalogueActions {
+    gap: 1.25rem;
   }
 }
