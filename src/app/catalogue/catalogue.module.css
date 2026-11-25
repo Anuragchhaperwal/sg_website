@@ -1,0 +1,212 @@
+.main {
+  min-height: 100svh;
+  padding: 11rem 1.5rem 6rem;
+  background:
+    linear-gradient(90deg, rgb(29 27 23 / 76%), rgb(29 27 23 / 35%)),
+    url("/images/hero-interior.png") center 54% / cover,
+    #29241e;
+  color: #fffaf1;
+}
+
+.content {
+  display: grid;
+  width: min(100%, 70rem);
+  min-height: calc(100svh - 17rem);
+  align-items: center;
+  margin: 0 auto;
+}
+
+.intro {
+  max-width: 39rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #ddc69f;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 1.2rem 0 1rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 6.75rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.title em,
+.panelHeading em {
+  color: #ddc69f;
+  font-weight: 400;
+}
+
+.description {
+  max-width: 30rem;
+  margin: 0;
+  color: #e4ded2;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.uploadPanel {
+  width: min(100%, 36rem);
+  margin-top: 3rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: #fbf9f4;
+  color: #292823;
+  box-shadow: 0 1.5rem 4rem rgb(20 18 15 / 22%);
+}
+
+.uploadPanel .eyebrow {
+  color: #8b7557;
+}
+
+.panelHeading {
+  margin: 0.8rem 0 0.65rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.panelHeading em {
+  color: #8b7557;
+}
+
+.panelDescription {
+  margin: 0 0 1.5rem;
+  color: #68665e;
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+.form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.fileField {
+  display: grid;
+  gap: 0.55rem;
+  color: #3a3832;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.fileField input {
+  width: 100%;
+  min-height: 3.2rem;
+  padding: 0.65rem;
+  border: 1px solid rgb(41 40 35 / 18%);
+  background: #fffefa;
+  color: #292823;
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+.fileField input:focus-visible {
+  outline: 2px solid rgb(139 117 87 / 60%);
+  outline-offset: 2px;
+}
+
+.submit {
+  display: inline-flex;
+  min-height: 3.4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  justify-self: start;
+  padding: 0 1.25rem;
+  border: 1px solid #292823;
+  background: #292823;
+  color: #fffaf1;
+  cursor: pointer;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.submit svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.uploadError {
+  margin: 1rem 0 0;
+  color: #9a3025;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.pdfResult {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid rgb(41 40 35 / 18%);
+  background: #fffefa;
+  color: #3a3832;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.pdfResult p {
+  margin: 0;
+}
+
+.pdfResult > a {
+  overflow-wrap: anywhere;
+  color: #766043;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pdfActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pdfActions a,
+.pdfActions button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #292823;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 560px) {
+  .main {
+    padding: 9rem 1.25rem 4rem;
+  }
+
+  .content {
+    min-height: calc(100svh - 13rem);
+  }
+
+  .uploadPanel {
+    margin-top: 2.25rem;
+  }
+
+  .submit {
+    width: 100%;
+  }
+}

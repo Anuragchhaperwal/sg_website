@@ -61,6 +61,18 @@ is available under CC0. The footer's published address, email, phone number,
 collections, and social links were taken from
 [Samdani Marble Group's website](https://samdanigroup.com/).
 
+## Catalogue PDF sharing
+
+Visit `/catalogue` to upload a PDF (up to 10 MB). The upload page creates a
+shareable URL that opens the PDF inline in a browser. Uploads are stored in
+`.data/catalogues` by default; set `CATALOGUE_UPLOAD_DIR` to use another
+directory. The upload page is public, so anyone can upload a PDF.
+
+This filesystem storage requires a persistent Node.js server and shared storage
+for multiple server instances. On serverless hosting, configure persistent
+object storage instead; local deployment files may not persist between
+deployments or be available to every instance.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

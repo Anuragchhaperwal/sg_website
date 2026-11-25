@@ -30,20 +30,18 @@ export function buildResumeMailto({
   name,
   email,
   phone,
-  resumeFileName,
+  resumeUrl,
 }: {
   name: string;
   email: string;
   phone: string;
-  resumeFileName: string;
+  resumeUrl: string;
 }) {
   const details = [
     name ? `Name: ${name}` : "",
     email ? `Email: ${email}` : "",
     phone ? `Phone: ${phone}` : "",
-    resumeFileName
-      ? `Resume file: ${resumeFileName} (please attach it before sending)`
-      : "",
+    resumeUrl ? `Resume PDF: ${resumeUrl}` : "",
   ].filter(Boolean);
   const body = details.join("\n");
 

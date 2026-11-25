@@ -5,22 +5,89 @@ import { ArrowIcon } from "@/components/arrow-icon";
 import { buildResumeMailto } from "@/lib/contact-email";
 import styles from "./contact.module.css";
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
 export function ResumeInquiry() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [emailAppOpened, setEmailAppOpened] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const [pdfUrl, setPdfUrl] = useState("");
+  const [copyStatus, setCopyStatus] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const resume = formData.get("resume");
-    window.location.href = buildResumeMailto({
-      name: String(formData.get("name") ?? "").trim(),
-      email: String(formData.get("email") ?? "").trim(),
-      phone: String(formData.get("phone") ?? "").trim(),
-      resumeFileName: resume instanceof File ? resume.name : "",
-    });
-    setEmailAppOpened(true);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const phone = String(formData.get("phone") ?? "").trim();
+    setUploadError("");
+    setCopyStatus("");
+
+    if (!(resume instanceof File) || resume.size === 0) {
+      setPdfUrl("");
+      window.location.href = buildResumeMailto({
+        name,
+        email,
+        phone,
+        resumeUrl: "",
+      });
+      setEmailAppOpened(true);
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      const uploadData = new FormData();
+      uploadData.set("resume", resume);
+      const response = await fetch("/api/resumes", {
+        method: "POST",
+        body: uploadData,
+      });
+      const result: unknown = await response.json();
+
+      if (!response.ok) {
+        const message =
+          isRecord(result) && typeof result.error === "string"
+            ? result.error
+            : "Could not upload the PDF. Please try again.";
+        throw new Error(message);
+      }
+      if (!isRecord(result) || typeof result.url !== "string") {
+        throw new Error("The upload completed without returning a PDF link.");
+      }
+
+      const shareUrl = new URL(result.url, window.location.origin).toString();
+      setPdfUrl(shareUrl);
+      window.location.href = buildResumeMailto({
+        name,
+        email,
+        phone,
+        resumeUrl: shareUrl,
+      });
+      setEmailAppOpened(true);
+    } catch (error) {
+      setUploadError(
+        error instanceof Error
+          ? error.message
+          : "Could not upload the PDF. Please try again.",
+      );
+    } finally {
+      setIsUploading(false);
+    }
+  }
+
+  async function copyPdfLink() {
+    try {
+      await navigator.clipboard.writeText(pdfUrl);
+      setCopyStatus("Link copied.");
+    } catch {
+      setCopyStatus("Could not copy the link. Select it and copy it manually.");
+    }
   }
 
   return (
@@ -67,7 +134,7 @@ export function ResumeInquiry() {
               <label className={`${styles.field} ${styles.fieldFull}`}>
                 <span>Resume</span>
                 <input
-                  accept=".pdf,.doc,.docx"
+                  accept=".pdf,application/pdf"
                   name="resume"
                   type="file"
                 />
@@ -103,13 +170,38 @@ export function ResumeInquiry() {
               </label>
             </div>
 
-            <button className={styles.submit} type="submit">
-              Continue to email <ArrowIcon />
+            <button className={styles.submit} disabled={isUploading} type="submit">
+              {isUploading ? "Uploading PDF..." : "Continue to email"}{" "}
+              {!isUploading && <ArrowIcon />}
             </button>
+            {uploadError && (
+              <p className={styles.uploadError} role="alert">
+                {uploadError}
+              </p>
+            )}
+            {pdfUrl && (
+              <div className={styles.pdfResult} role="status">
+                <p>Your shareable PDF link is ready:</p>
+                <a href={pdfUrl} rel="noreferrer" target="_blank">
+                  {pdfUrl}
+                </a>
+                <div className={styles.pdfActions}>
+                  <a href={pdfUrl} rel="noreferrer" target="_blank">
+                    Open PDF
+                  </a>
+                  <button onClick={copyPdfLink} type="button">
+                    Copy link
+                  </button>
+                </div>
+                {copyStatus && <p aria-live="polite">{copyStatus}</p>}
+              </div>
+            )}
             <p className={styles.formNote} aria-live="polite">
               {emailAppOpened
-                ? "Your email app should open with your details. Please attach your resume there."
-                : "This opens your email app; it does not send or store your details. Attach your selected resume in the email before sending."}
+                ? pdfUrl
+                  ? "Your email draft includes the shareable PDF link."
+                  : "Your email app should open with your details."
+                : "Choose a PDF to upload and create a shareable link. Without a PDF, you can still continue to email. All fields are optional."}
             </p>
           </form>
         </div>

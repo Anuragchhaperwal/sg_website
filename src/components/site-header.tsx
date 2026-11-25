@@ -54,7 +54,16 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
-          <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>
+          <Link
+            href="/catalogue"
+            aria-current={pathname === "/catalogue" ? "page" : undefined}
+          >
+            Catalogue
+          </Link>
+          <Link
+            href="/contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+          >
             Contact
           </Link>
         </nav>
@@ -100,6 +109,14 @@ export function SiteHeader() {
             <ArrowIcon />
           </Link>
         ))}
+        <Link
+          href="/catalogue"
+          aria-current={pathname === "/catalogue" ? "page" : undefined}
+          onClick={() => setMenuOpen(false)}
+        >
+          Catalogue
+          <ArrowIcon />
+        </Link>
         <Link
           href="/contact"
           aria-current={pathname === "/contact" ? "page" : undefined}

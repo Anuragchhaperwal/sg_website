@@ -303,6 +303,56 @@
   line-height: 1.65;
 }
 
+.uploadError {
+  margin: -0.85rem 0 0;
+  color: #9a3025;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.pdfResult {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid rgb(41 40 35 / 18%);
+  background: #fffefa;
+  color: #3a3832;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.pdfResult p {
+  margin: 0;
+}
+
+.pdfResult > a {
+  overflow-wrap: anywhere;
+  color: #766043;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pdfActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pdfActions a,
+.pdfActions button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #292823;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .resumeTrigger {
   position: fixed;
   z-index: 20;

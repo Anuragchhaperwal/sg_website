@@ -54,12 +54,12 @@ describe("buildContactMailto", () => {
     );
   });
 
-  it("includes only the provided optional resume details", () => {
+  it("includes the shareable resume link and optional contact details", () => {
     const mailto = buildResumeMailto({
       name: "Riya Shah",
       email: "",
       phone: "+91 98765 43210",
-      resumeFileName: "Riya Resume.pdf",
+      resumeUrl: "https://example.com/api/resumes/ebda99e6-7093-4f3d-bdad-59473d8a535e",
     });
     const url = new URL(mailto);
 
@@ -68,7 +68,7 @@ describe("buildContactMailto", () => {
       [
         "Name: Riya Shah",
         "Phone: +91 98765 43210",
-        "Resume file: Riya Resume.pdf (please attach it before sending)",
+        "Resume PDF: https://example.com/api/resumes/ebda99e6-7093-4f3d-bdad-59473d8a535e",
       ].join("\n"),
     );
   });
@@ -78,7 +78,7 @@ describe("buildContactMailto", () => {
       name: "",
       email: "",
       phone: "",
-      resumeFileName: "",
+      resumeUrl: "",
     });
     const url = new URL(mailto);
 
