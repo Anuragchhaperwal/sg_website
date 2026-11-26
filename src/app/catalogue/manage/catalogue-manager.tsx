@@ -6,6 +6,7 @@ import styles from "../catalogue.module.css";
 type Catalogue = {
   id: string;
   filename: string;
+  title: string;
   uploadedAt: string;
 };
 
@@ -24,6 +25,7 @@ function isCatalogueList(
         isRecord(catalogue) &&
         typeof catalogue.id === "string" &&
         typeof catalogue.filename === "string" &&
+        typeof catalogue.title === "string" &&
         typeof catalogue.uploadedAt === "string",
     )
   );
@@ -77,7 +79,10 @@ export function CatalogueManager() {
   }
 
   async function copyCatalogueLink(id: string) {
-    const url = new URL(`/api/catalogue/${id}`, window.location.origin).toString();
+    const url = new URL(
+      `/api/catalogue/${id}.pdf`,
+      window.location.origin,
+    ).toString();
     try {
       await navigator.clipboard.writeText(url);
       setStatus("Share link copied.");
@@ -89,7 +94,7 @@ export function CatalogueManager() {
   }
 
   async function deleteCatalogue(catalogue: Catalogue) {
-    if (!window.confirm(`Delete "${catalogue.filename}"? This cannot be undone.`)) {
+    if (!window.confirm(`Delete "${catalogue.title}"? This cannot be undone.`)) {
       return;
     }
 
@@ -111,7 +116,7 @@ export function CatalogueManager() {
       setCatalogues((current) =>
         current.filter((entry) => entry.id !== catalogue.id),
       );
-      setStatus(`${catalogue.filename} was deleted.`);
+      setStatus(`${catalogue.title} was deleted.`);
     } catch (deleteError) {
       setError(
         deleteError instanceof Error
@@ -183,7 +188,10 @@ export function CatalogueManager() {
               {catalogues.map((catalogue) => (
                 <li className={styles.catalogueItem} key={catalogue.id}>
                   <div className={styles.catalogueInfo}>
-                    <strong>{catalogue.filename}</strong>
+                    <strong>{catalogue.title}</strong>
+                    {catalogue.title !== catalogue.filename.replace(/\.pdf$/i, "") && (
+                      <span>{catalogue.filename}</span>
+                    )}
                     <span>
                       Uploaded{" "}
                       {new Date(catalogue.uploadedAt).toLocaleString()}

@@ -1,9 +1,9 @@
-import { randomUUID } from "node:crypto";
 import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { authorizeCatalogueAdmin } from "@/lib/catalogue-admin-auth";
 import {
   CATALOGUE_ID_PATTERN,
+  createCatalogueSlug,
   getCatalogueStorageDirectory,
   MAX_CATALOGUE_SIZE_BYTES,
 } from "@/lib/catalogue-storage";
@@ -12,6 +12,7 @@ const MAX_MULTIPART_OVERHEAD_BYTES = 256 * 1024;
 
 type CatalogueMetadata = {
   filename: string;
+  title?: string;
   uploadedAt: string;
 };
 
@@ -21,6 +22,7 @@ function isCatalogueMetadata(value: unknown): value is CatalogueMetadata {
     value !== null &&
     "filename" in value &&
     typeof value.filename === "string" &&
+    (!("title" in value) || typeof value.title === "string") &&
     "uploadedAt" in value &&
     typeof value.uploadedAt === "string"
   );
@@ -61,6 +63,7 @@ export async function GET(request: Request) {
       const pdfPath = join(storageDirectory, `${id}.pdf`);
       const fileStats = await stat(pdfPath);
       let filename = `Catalogue ${id.slice(0, 8)}.pdf`;
+      let title = filename.replace(/\.pdf$/i, "");
       let uploadedAt = fileStats.mtime.toISOString();
 
       try {
@@ -69,6 +72,8 @@ export async function GET(request: Request) {
         );
         if (isCatalogueMetadata(metadata)) {
           filename = metadata.filename;
+          title =
+            metadata.title?.trim() || metadata.filename.replace(/\.pdf$/i, "");
           uploadedAt = metadata.uploadedAt;
         }
       } catch (error) {
@@ -82,7 +87,7 @@ export async function GET(request: Request) {
         }
       }
 
-      return { id, filename, uploadedAt };
+      return { id, title, filename, uploadedAt };
     }),
   );
 
@@ -149,23 +154,43 @@ export async function POST(request: Request) {
     );
   }
 
-  const id = randomUUID();
   const storageDirectory = getCatalogueStorageDirectory();
   const filename =
     file.name
       .replace(/[\\/\u0000-\u001f\u007f]/g, "_")
       .slice(0, 255) || "catalogue.pdf";
+  const title = filename.replace(/\.pdf$/i, "");
   const uploadedAt = new Date().toISOString();
+  const baseSlug = createCatalogueSlug(title);
   await mkdir(storageDirectory, { recursive: true });
-  await writeFile(join(storageDirectory, `${id}.pdf`), fileContents, {
-    flag: "wx",
-    mode: 0o600,
-  });
+  let id = "";
+  for (let suffix = 1; ; suffix += 1) {
+    const candidate = suffix === 1 ? baseSlug : `${baseSlug}-${suffix}`;
+    try {
+      await writeFile(join(storageDirectory, `${candidate}.pdf`), fileContents, {
+        flag: "wx",
+        mode: 0o600,
+      });
+      id = candidate;
+      break;
+    } catch (error) {
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "code" in error &&
+        error.code === "EEXIST"
+      ) {
+        continue;
+      }
+      throw error;
+    }
+  }
+
   await writeFile(
     join(storageDirectory, `${id}.json`),
-    JSON.stringify({ filename, uploadedAt }),
+    JSON.stringify({ filename, title, uploadedAt }),
     { flag: "wx", mode: 0o600 },
   );
 
-  return Response.json({ url: `/api/catalogue/${id}` });
+  return Response.json({ url: `/api/catalogue/${id}.pdf` });
 }

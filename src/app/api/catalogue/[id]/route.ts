@@ -10,7 +10,8 @@ export async function GET(
   _request: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = await params;
+  const { id: requestedId } = await params;
+  const id = requestedId.replace(/\.pdf$/i, "");
   if (!CATALOGUE_ID_PATTERN.test(id)) {
     return new Response("Not found", { status: 404 });
   }
@@ -50,7 +51,8 @@ export async function DELETE(
     return authError;
   }
 
-  const { id } = await params;
+  const { id: requestedId } = await params;
+  const id = requestedId.replace(/\.pdf$/i, "");
   if (!CATALOGUE_ID_PATTERN.test(id)) {
     return new Response("Not found", { status: 404 });
   }
